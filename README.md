@@ -2,7 +2,9 @@
 
 Bản wireframe tương tác (low-fidelity) cho luồng tiểu thương chợ truyền thống khai doanh thu hàng tháng và nộp lệ phí chợ.
 
-**21 màn**, khung máy **iPhone 12 Pro Max (428 × 926 pt)**, bấm được theo luồng thật.
+**10 màn**, khung máy **iPhone 12 Pro Max (428 × 926 pt)**, bấm được theo luồng thật.
+
+Toàn bộ việc khai báo gộp trong **một màn duy nhất** — người dùng cuộn thay vì chuyển qua nhiều bước.
 
 ---
 
@@ -58,15 +60,40 @@ Mặc định để gần đen vì đây là bản **low-fidelity** — mục đ
 
 | Nhóm | Màn | Nội dung |
 |---|---|---|
-| Chặng 1 | 1–4 | Vào luồng: trang chủ, chi tiết kỳ, chọn sạp, hỏi có bán hàng không |
-| Chặng 2 | 5–8 | Báo doanh thu: so với tháng trước, ước tính theo ngày, khoảng đề xuất, nhánh nghỉ bán |
-| Chặng 3 | 9–12 | Ghi nhận: xem lại, đã ghi nhận, miễn lệ phí, lịch sử |
-| Chặng 4 | 13–17 | Nộp tiền: thông tin trả, đang kiểm tra, thành công, đang kiểm tra với ngân hàng, thất bại |
-| Khai hộ | 18–21 | Giả thuyết: trang chủ người khai hộ, xem lại, đã gửi, chủ sạp nhận thông báo |
+| Khai báo | 1 | Tổng quan — một nút dẫn thẳng vào khai báo |
+| | 2 | **Báo doanh thu (màn gộp)** — hạn báo, sạp, câu hỏi có bán hàng, chọn mức tiền theo tháng hoặc theo ngày, lệ phí |
+| | 3 | Đã ghi nhận |
+| | 4 | Không phải nộp (nhánh nghỉ bán) |
+| | 5 | Lịch sử |
+| Nộp lệ phí | 6–10 | Nộp lệ phí, đang kiểm tra, đã nộp xong, đang kiểm tra với ngân hàng, chuyển tiền chưa xong |
+
+### Màn gộp hoạt động thế nào
+
+Mặc định chọn sẵn **Có bán hàng**, nên trường hợp phổ biến chỉ cần **2 lần chạm**: chọn mức doanh thu, rồi bấm gửi.
+
+- **Theo tháng** — 5 chip: dưới 10 triệu · 10–20 · 20–30 · trên 30 · số khác (mở ô nhập)
+- **Theo ngày** — chọn doanh thu một ngày và số ngày bán, hệ thống tự quy ra mức tháng
+- Lệ phí tính lại ngay khi đổi lựa chọn; nút gửi chỉ bật khi đã chọn mức
+- Chọn **Nghỉ, không bán** thì phần doanh thu ẩn đi, thay bằng hai lý do nghỉ:
+  - **Nghỉ tạm** → vẫn phải nộp mức tối thiểu (lệ phí chợ tối thiểu 100k + bảo hiểm 50k = 150k), đi tiếp sang nộp lệ phí
+  - **Nghỉ hẳn, trả sạp** → không phải nộp, kết thúc luôn
+
+Ba nhóm điều khiển (có bán hàng / nghỉ bán, theo tháng / theo ngày, và các chip mức tiền) đều cao **56px** — bằng nhau và vẫn đạt ngưỡng vùng chạm tối thiểu. Chip xếp **3 + 2 trên đúng 2 dòng**.
+
+### Màn nộp lệ phí
+
+- **Mã QR hiện sẵn** ngay dưới số tiền, để người dùng chụp lại và quét bằng máy khác nếu muốn
+- **Danh sách ngân hàng**, ngân hàng hay dùng đẩy lên đầu kèm nhãn *Hay dùng*
+- Câu hướng dẫn đặt **ngay trên nút**, đọc xong là bấm
+- Nút chính: **Mở ngân hàng đóng phí**
+
+Mã QR trong demo là hoa văn minh hoạ, không quét ra dữ liệu thật. Màu mã QR cố định để giữ độ tương phản cho máy quét — không đổi theo `--brand`.
+
+Mức lệ phí trong demo (100k / 150k / 200k / 300k + bảo hiểm 50k) là **số giả định** để thấy cơ chế, chưa phải biểu phí thật.
 
 Mỗi màn có phần chú thích bên dưới máy: **node tương ứng trong user flow** và **lý do thiết kế**.
 
-Ở màn 14 (*Đang kiểm tra*) có ba nút demo để chọn kết quả giao dịch — đây là công cụ trình bày, không phải phần của sản phẩm.
+Ở màn 7 (*Đang kiểm tra*) có ba nút demo để chọn kết quả giao dịch — đây là công cụ trình bày, không phải phần của sản phẩm.
 
 ---
 
@@ -81,13 +108,13 @@ Mỗi màn có phần chú thích bên dưới máy: **node tương ứng trong 
 
 ## Lưu ý về nội dung
 
-**Nhóm màn khai hộ (18–21) là giả thuyết, chưa được kiểm chứng.** Có ba mô hình khả dĩ — mượn máy chủ sạp, uỷ quyền có đăng ký, hoặc link một lần — và bản này thể hiện mô hình thứ hai với cơ chế *ghi nhận ngay + báo qua Zalo + cửa sổ phản đối*. Cần phỏng vấn để chốt mô hình trước khi thiết kế chi tiết.
-
 **Business rule cần xác minh với ban quản lý chợ:**
 
 1. Lệ phí có phần cố định theo sạp, hay hoàn toàn phụ thuộc doanh thu — quyết định nhánh "lệ phí = 0"
-2. Chủ sạp có bắt buộc xác nhận khi người khác khai hộ không
+2. Các mức doanh thu và biểu phí tương ứng
 3. Quyền chỉnh sửa sau khi đã gửi kê khai
-4. Ngân hàng phổ biến tại chợ có hỗ trợ deeplink điền sẵn không — nếu không, màn 13 phải quay lại QR làm mặc định
+4. Ngân hàng phổ biến tại chợ có hỗ trợ deeplink điền sẵn không — nếu không, màn 6 phải quay lại QR làm mặc định
+
+Luồng này **không bao gồm khai hộ**. Nếu cần, đó là một luồng riêng.
 
 Số liệu, tên người và tên chợ trong bản demo đều là ví dụ.

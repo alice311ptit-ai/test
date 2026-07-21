@@ -31,13 +31,13 @@ html,body{margin:0;padding:0}
 body{background:var(--page);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+[hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
-/* ── page chrome ───────────────────────────── */
 .top{padding:22px 26px 18px;border-bottom:1px solid var(--hair);background:var(--panel)}
 .top h1{margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em}
-.top p{margin:5px 0 0;font-size:14px;color:var(--muted);max-width:70ch;line-height:1.55}
-.wrap{display:grid;grid-template-columns:262px minmax(0,1fr);gap:0;align-items:start}
+.top p{margin:5px 0 0;font-size:14px;color:var(--muted);max-width:74ch;line-height:1.55}
+.wrap{display:grid;grid-template-columns:262px minmax(0,1fr)}
 .rail{position:sticky;top:0;max-height:100vh;overflow:auto;padding:18px 14px 40px;border-right:1px solid var(--hair);background:var(--panel)}
 .grp{margin:0 0 18px}
 .grp h2{margin:0 0 7px;padding:0 8px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
@@ -49,7 +49,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .stage{padding:26px 20px 60px;display:flex;flex-direction:column;align-items:center;gap:18px}
 .zoomer{transform-origin:top center}
 
-/* ── device: iPhone 12 Pro Max, 428 × 926 pt ── */
+/* device: iPhone 12 Pro Max, 428 × 926 pt */
 .device{position:relative;width:428px;height:926px;background:#000;border-radius:56px;padding:12px;
   box-shadow:0 1px 2px rgba(16,20,26,.18),0 22px 50px -18px rgba(16,20,26,.42)}
 .viewport{position:relative;width:404px;height:902px;border-radius:45px;overflow:hidden;background:var(--screen-bg);display:flex;flex-direction:column}
@@ -58,33 +58,22 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 
 .scr{display:none;flex-direction:column;height:100%}
 .scr.on{display:flex}
-
-/* status bar (safe area top = 47pt) */
 .sb{height:47px;flex:none;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 7px;font-size:15px;font-weight:600}
-.sb .rt{display:flex;gap:5px;align-items:center}
 .sb i{display:block;width:17px;height:11px;border:1.4px solid currentColor;border-radius:3px;opacity:.9}
-
-/* app bar */
 .nav{flex:none;display:flex;align-items:center;gap:6px;padding:6px 10px 12px;background:var(--panel);border-bottom:1px solid var(--hair)}
 .back{width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:50%;flex:none}
 .back:hover{background:var(--fill)}
 .nav h3{margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em}
 .ic{width:26px;height:26px;display:block}
-
-/* body + footer */
 .bd{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px}
-.bd.plain{background:var(--panel)}
 .bd.mid{justify-content:center;gap:18px}
 .ft{flex:none;padding:14px 16px 30px;background:var(--panel);border-top:1px solid var(--hair);display:flex;flex-direction:column;gap:10px}
 .ft.bare{border:0;background:transparent}
-
-/* tab bar */
 .tabs{flex:none;display:flex;background:var(--panel);border-top:1px solid var(--hair);padding:8px 0 26px}
 .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--muted)}
 .tab .ic{width:25px;height:25px}
 .tab.on{color:var(--ink);font-weight:600}
 
-/* primitives */
 h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em}
 .lead{margin:0;font-size:20px;font-weight:600;line-height:1.35}
 .sm{font-size:15px;color:var(--muted);line-height:1.55;margin:0}
@@ -97,23 +86,24 @@ h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em
 .row .v{font-weight:600}
 .rule{height:1px;background:var(--hair);margin:6px 0}
 .total .k{font-size:17px;font-weight:600;color:var(--ink)}
-.total .v{font-size:25px;font-weight:600;letter-spacing:-.02em}
+.total .v{font-size:21px;font-weight:600;letter-spacing:-.02em}
 .btn{min-height:58px;display:flex;align-items:center;justify-content:center;text-align:center;
   border-radius:var(--radius);font-size:18px;font-weight:600;padding:10px 14px;width:100%}
 .btn.pri{background:var(--brand);color:var(--on-brand)}
 .btn.sec{border:2px solid var(--brand)}
 .btn.sm{min-height:50px;font-size:16px}
 .btn:hover{opacity:.88}
+.btn[disabled]{opacity:.32;cursor:not-allowed}
+.btn[disabled]:hover{opacity:.32}
 .link{min-height:48px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;width:100%}
 .two{display:flex;gap:10px}.two>*{flex:1}
 .opt{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;
   min-height:60px;padding:12px 14px;background:var(--field);border:1px solid var(--hair);border-radius:var(--radius);font-size:18px}
-.opt .s{display:block;font-size:15px;color:var(--muted);font-weight:400;margin-top:2px}
 .opt[aria-checked="true"]{border:2px solid var(--brand);background:var(--fill);font-weight:600}
 .dot{width:26px;height:26px;border-radius:50%;border:2px solid #C2C8CF;flex:none}
 .opt[aria-checked="true"] .dot{background:var(--brand);border-color:var(--brand);box-shadow:inset 0 0 0 4px var(--field)}
-.big{min-height:78px;display:flex;align-items:center;justify-content:center;text-align:center;width:100%;
-  padding:14px;border:2px solid var(--hair);border-radius:14px;background:var(--field);font-size:18px;font-weight:600}
+.big{min-height:56px;display:flex;align-items:center;justify-content:center;text-align:center;width:100%;
+  padding:8px 10px;border:2px solid var(--hair);border-radius:12px;background:var(--field);font-size:16px;font-weight:600;line-height:1.25}
 .big[aria-checked="true"]{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
 .note{border:1px dashed #C2C8CF;background:#FAFBFC;border-radius:var(--radius);padding:13px;font-size:15px;color:var(--ink-2);line-height:1.6}
 .note.strong{border:2px solid var(--brand);border-style:solid;background:var(--panel);color:var(--ink)}
@@ -125,21 +115,16 @@ h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em
 .pill.done::before{background:var(--brand)}
 .pill.warn{border:2px solid var(--brand);color:var(--ink)}
 .pill.warn::before{background:var(--brand)}
-.money{font-size:36px;font-weight:600;letter-spacing:-.025em;line-height:1.15}
+.money{font-size:30px;font-weight:600;letter-spacing:-.025em;line-height:1.15}
 .badge{width:60px;height:60px;border-radius:50%;background:var(--brand);color:var(--on-brand);
   display:flex;align-items:center;justify-content:center;margin:0 auto;flex:none}
 .badge.o{background:var(--panel);color:var(--brand);border:3px solid var(--brand)}
 .badge.d{background:var(--panel);color:var(--muted);border:3px dashed #C2C8CF}
 .badge .ic{width:30px;height:30px}
-.step{display:flex;align-items:center;gap:12px}
-.step button{width:60px;height:60px;border:2px solid var(--brand);border-radius:var(--radius);display:flex;
-  align-items:center;justify-content:center;font-size:26px;font-weight:600;flex:none}
-.step .val{flex:1;text-align:center;font-size:25px;font-weight:600;font-variant-numeric:tabular-nums}
 .bars{display:flex;align-items:flex-end;gap:8px;height:88px}
 .bars i{flex:1;background:#CBD1D8;border-radius:4px}
 .bank{display:flex;align-items:center;gap:13px;width:100%;padding:14px;border:2px solid var(--brand);border-radius:var(--radius);min-height:76px}
 .bank .logo{width:42px;height:42px;border-radius:11px;background:var(--fill);flex:none}
-.bank .nm{font-size:18px;font-weight:600}
 .scrim{flex:1;background:rgba(10,13,18,.5);display:flex;align-items:center;justify-content:center;padding:16px}
 .sheet{background:var(--panel);border-radius:18px;padding:20px;width:100%;display:flex;flex-direction:column;gap:14px}
 .wait{display:flex;gap:9px;justify-content:center}
@@ -147,14 +132,47 @@ h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em
 .wait span:nth-child(2){animation-delay:.15s}.wait span:nth-child(3){animation-delay:.3s}
 @keyframes b{0%,60%,100%{opacity:.3}30%{opacity:1}}
 
-/* annotation */
+/* ── màn gộp: điều khiển riêng ─────────────── */
+.seg{display:flex;background:var(--fill);border-radius:12px;padding:4px;gap:4px}
+.seg button{flex:1;min-height:56px;border-radius:10px;font-size:16px;font-weight:600;
+  display:flex;align-items:center;justify-content:center}
+.seg button[aria-selected="true"]{background:var(--brand);color:var(--on-brand)}
+.chips{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}
+.chip{grid-column:span 2;min-height:56px;display:flex;align-items:center;justify-content:center;text-align:center;padding:6px 4px;
+  border:2px solid var(--hair);border-radius:12px;background:var(--field);font-size:15px;font-weight:600;line-height:1.2}
+.chip[aria-checked="true"]{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+.chip.half{grid-column:span 3;font-size:16px}
+.numin{display:flex;align-items:center;gap:8px;border:2px solid var(--brand);border-radius:13px;padding:0 16px;min-height:66px;background:var(--field)}
+.numin input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:24px;font-weight:600;letter-spacing:-.01em}
+.numin input::placeholder{color:#B6BDC5;font-weight:400}
+.numin input:focus{outline:none}
+.numin .unit{font-size:20px;font-weight:600;color:var(--muted)}
+.step{display:flex;align-items:center;gap:12px}
+.step button{width:62px;height:62px;border:2px solid var(--brand);border-radius:13px;display:flex;
+  align-items:center;justify-content:center;font-size:28px;font-weight:600;flex:none}
+.step .val{flex:1;text-align:center;font-size:25px;font-weight:600;font-variant-numeric:tabular-nums}
+.field-label{margin:0 0 9px;font-size:17px;font-weight:600}
+.hdr .row{padding:5px 0}
+.swap{font-size:15px;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px}
+
+.qr{width:196px;height:196px;margin:14px auto 10px;background:#fff;border:1px solid var(--hair);border-radius:12px;padding:11px}
+.qr svg{display:block;width:100%;height:100%}
+.banks{display:flex;flex-direction:column;gap:10px}
+.bankrow{display:flex;align-items:center;gap:12px;width:100%;min-height:66px;padding:12px 14px;
+  background:var(--field);border:1px solid var(--hair);border-radius:var(--radius)}
+.bankrow[aria-checked="true"]{border:2px solid var(--brand);background:var(--fill)}
+.bankrow .logo{width:40px;height:40px;border-radius:10px;background:var(--fill);flex:none}
+.bankrow[aria-checked="true"] .logo{background:var(--panel)}
+.bankrow .nm{flex:1;font-size:17px;font-weight:600}
+.tagmini{font-size:13px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--brand);color:var(--on-brand);white-space:nowrap}
+
 .anno{width:428px;max-width:100%;background:var(--panel);border:1px solid var(--hair);border-radius:14px;padding:16px 18px}
 .anno .eyebrow{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 5px}
 .anno h5{margin:0 0 9px;font-size:17px;font-weight:600}
 .anno dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:14px;line-height:1.6}
 .anno dt{color:var(--muted);white-space:nowrap}
 .anno dd{margin:0;color:var(--ink-2)}
-.hint{font-size:13px;color:var(--muted);text-align:center;max-width:44ch;line-height:1.6}
+.hint{font-size:13px;color:var(--muted);text-align:center;max-width:46ch;line-height:1.6}
 
 @media (max-width:900px){
   .wrap{grid-template-columns:1fr}
@@ -174,15 +192,12 @@ h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em
 <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 01-1 1h-4v-6H9v6H5a1 1 0 01-1-1z"/></symbol>
 <symbol id="i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5V20a1 1 0 001 1h14a1 1 0 001-1V9.5"/><path d="M3 6.5L4.6 3.5h14.8L21 6.5a3 3 0 01-6 0 3 3 0 01-6 0 3 3 0 01-6 0z"/></symbol>
 <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20.5a7.5 7.5 0 0115 0"/></symbol>
-<symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 6.5V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7a2 2 0 002 2h.5"/></symbol>
 <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h3l1.5 4L8.6 9.2a12 12 0 006.2 6.2l1.7-1.9 4 1.5v3a2 2 0 01-2.2 2A16.8 16.8 0 014 5.7 2 2 0 016 3.5z"/></symbol>
-<symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10a6 6 0 1112 0c0 4 1.5 5.5 1.5 5.5h-15S6 14 6 10z"/><path d="M10 19a2 2 0 004 0"/></symbol>
-<symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol>
 </defs></svg>
 
 <header class="top">
   <h1>Chợ 4.0 — báo doanh thu và nộp lệ phí</h1>
-  <p>Wireframe tương tác, độ trung thực thấp. Khung máy iPhone 12 Pro Max (428 × 926 pt). Bấm vào các nút trong máy để đi theo luồng, hoặc chọn màn ở cột trái.</p>
+  <p>Wireframe tương tác, độ trung thực thấp. Khung máy iPhone 12 Pro Max (428 × 926 pt). Toàn bộ việc khai báo gộp trong một màn để người lớn tuổi không phải đi qua nhiều bước.</p>
 </header>
 
 <div class="wrap">
@@ -196,13 +211,13 @@ h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em
 
 <!-- 1 ───────────────────────────────────────── -->
 <section class="scr" id="s-home">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
+  <div class="sb"><span>9:41</span><i></i></div>
   <div class="bd">
     <h4>Tổng quan</h4>
     <div class="card mark">
       <p class="lead" style="font-size:18px">Việc cần làm tháng này</p>
       <p class="sm" style="color:var(--ink);margin:6px 0 14px">Báo doanh thu tháng 7 để tính lệ phí chợ. Còn 6 ngày.</p>
-      <button class="btn pri" data-go="period">Báo doanh thu</button>
+      <button class="btn pri" data-go="declare">Báo doanh thu</button>
     </div>
     <div class="two">
       <button class="btn sec sm">Tạo đơn</button>
@@ -221,206 +236,153 @@ h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em
   </div>
 </section>
 
-<!-- 2 ───────────────────────────────────────── -->
-<section class="scr" id="s-period">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Tháng 7/2025</h3></div>
+<!-- 2 ── MÀN GỘP ────────────────────────────── -->
+<section class="scr" id="s-declare">
+  <div class="sb"><span>9:41</span><i></i></div>
+  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Báo doanh thu</h3></div>
   <div class="bd">
-    <div class="card">
-      <div class="row"><span class="k">Hạn báo</span><span class="v">05/08/2025</span></div>
-      <div class="row"><span class="k">Sạp</span><span class="v">3 sạp</span></div>
-      <div class="row"><span class="k">Người khai</span><span class="v">Bạn</span></div>
+
+    <div class="card hdr">
+      <div class="row"><span class="k">Tháng</span><span class="v">7/2025</span></div>
+      <div class="row"><span class="k">Hạn báo</span><span class="v">05/08/2025 · còn 6 ngày</span></div>
+      <div class="row"><span class="k">Sạp</span><span><span class="v">A12 — Hàng khô</span> <button class="swap">Đổi</button></span></div>
     </div>
-    <div class="note"><b>Số tiền bạn khai dùng để làm gì?</b>Chỉ để tính lệ phí chợ và phí bảo hiểm. Không gửi cho cơ quan thuế.</div>
-    <div class="card fill">
-      <div class="row"><span class="k">Tháng trước bạn khai</span><span class="v">10 – 30 triệu</span></div>
-      <div class="row"><span class="k">Lệ phí đã đóng</span><span class="v">250.000đ</span></div>
+
+    <div>
+      <p class="field-label">Tháng 7 sạp có bán hàng không?</p>
+      <div class="two">
+        <button class="big" data-sales="yes" aria-checked="true">Có bán hàng</button>
+        <button class="big" data-sales="no" aria-checked="false">Nghỉ, không bán</button>
+      </div>
     </div>
+
+    <!-- có bán hàng -->
+    <div id="blk-yes" style="display:flex;flex-direction:column;gap:14px">
+      <div>
+        <h4 style="margin-bottom:4px">Báo doanh thu</h4>
+        <p class="sm">Tháng trước bạn khai 20 – 30 triệu</p>
+      </div>
+
+      <div class="seg" role="tablist">
+        <button role="tab" aria-selected="true" data-mode="month">Theo tháng</button>
+        <button role="tab" aria-selected="false" data-mode="day">Theo ngày</button>
+      </div>
+
+      <div id="blk-month">
+        <div class="chips">
+          <button class="chip" role="radio" aria-checked="false" data-br="a">Dưới 10 triệu</button>
+          <button class="chip" role="radio" aria-checked="false" data-br="b">10 – 20 triệu</button>
+          <button class="chip" role="radio" aria-checked="false" data-br="c">20 – 30 triệu</button>
+          <button class="chip half" role="radio" aria-checked="false" data-br="d">Trên 30 triệu</button>
+          <button class="chip half" role="radio" aria-checked="false" data-br="x">Số khác</button>
+        </div>
+        <div id="blk-other" hidden style="margin-top:12px">
+          <p class="field-label">Nhập số tiền tháng 7</p>
+          <div class="numin"><input id="in-other" inputmode="numeric" placeholder="0" aria-label="Số tiền doanh thu tháng 7"><span class="unit">đ</span></div>
+        </div>
+      </div>
+
+      <div id="blk-day" hidden style="display:flex;flex-direction:column;gap:16px">
+        <div>
+          <p class="field-label">Ngày thường bán được khoảng bao nhiêu?</p>
+          <div class="step"><button data-step="-1" aria-label="Giảm">−</button><span class="val" id="v-day">800.000đ</span><button data-step="1" aria-label="Tăng">+</button></div>
+        </div>
+        <div>
+          <p class="field-label">Tháng 7 bán được mấy ngày?</p>
+          <div class="step"><button data-days="-1" aria-label="Giảm">−</button><span class="val" id="v-num">26 ngày</span><button data-days="1" aria-label="Tăng">+</button></div>
+        </div>
+        <div class="card fill"><div class="row"><span class="k">Tính ra cả tháng</span><span class="v" style="font-size:18px" id="v-est">20,8 triệu</span></div></div>
+      </div>
+
+      <div class="card fill" id="blk-fee" hidden>
+        <div class="row"><span class="k">Lệ phí chợ</span><span id="f-market">—</span></div>
+        <div class="row"><span class="k">Phí bảo hiểm</span><span id="f-ins">—</span></div>
+        <div class="rule"></div>
+        <div class="row total"><span class="k">Phải nộp</span><span class="v" id="f-total">—</span></div>
+      </div>
+      <p class="sm" id="fee-empty">Chọn mức doanh thu để xem số tiền phải nộp.</p>
+    </div>
+
+    <!-- nghỉ bán -->
+    <div id="blk-no" hidden style="display:flex;flex-direction:column;gap:14px">
+      <div class="note strong"><b style="margin-bottom:0">Khai “không bán” là hoàn toàn bình thường.</b></div>
+      <div>
+        <p class="field-label">Lý do nghỉ</p>
+        <div class="two">
+          <button class="big" role="radio" aria-checked="true" data-reason="temp">Nghỉ tạm</button>
+          <button class="big" role="radio" aria-checked="false" data-reason="quit">Nghỉ hẳn, trả sạp</button>
+        </div>
+      </div>
+      <div class="card fill" id="fee-temp">
+        <div class="row"><span class="k">Lệ phí chợ tối thiểu</span><span>100.000đ</span></div>
+        <div class="row"><span class="k">Phí bảo hiểm</span><span>50.000đ</span></div>
+        <div class="rule"></div>
+        <div class="row total"><span class="k">Phải nộp</span><span class="v">150.000đ</span></div>
+      </div>
+      <div class="card fill" id="fee-quit" hidden>
+        <div class="row total"><span class="k">Phải nộp</span><span class="v">0đ</span></div>
+      </div>
+      <p class="sm" id="no-note">Nghỉ tạm vẫn đóng mức tối thiểu để giữ chỗ sạp.</p>
+    </div>
+
   </div>
-  <div class="ft">
-    <button class="btn pri" data-go="stalls">Bắt đầu báo</button>
-    <button class="btn sec sm" data-go="helperHome">Nhờ người khác khai hộ</button>
-  </div>
+  <div class="ft"><button class="btn pri" id="cta-declare" disabled>Báo doanh thu</button></div>
 </section>
 
 <!-- 3 ───────────────────────────────────────── -->
-<section class="scr" id="s-stalls">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Chọn sạp</h3></div>
-  <div class="bd">
-    <p class="sm">Bạn có 3 sạp. Khai từng sạp một.</p>
-    <button class="opt" role="radio" aria-checked="true" data-pick><span>Sạp A12<span class="s">Hàng khô</span></span><span class="dot"></span></button>
-    <button class="opt" role="radio" aria-checked="false" data-pick><span>Sạp B07<span class="s">Rau củ</span></span><span class="dot"></span></button>
-    <button class="opt" role="radio" aria-checked="false" disabled><span>Sạp C03<span class="s">Đồ khô</span></span><span class="pill done">Đã khai</span></button>
-    <div class="note">Không cần khai hết trong một lần. Sạp nào chưa khai vẫn hiện ở trang chủ.</div>
-  </div>
-  <div class="ft"><button class="btn pri" data-go="hasSales">Tiếp tục</button></div>
-</section>
-
-<!-- 4 ───────────────────────────────────────── -->
-<section class="scr" id="s-hasSales">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Sạp A12 · Tháng 7</h3></div>
-  <div class="bd">
-    <h4 style="margin-top:8px">Tháng 7 sạp có bán hàng không?</h4>
-    <button class="big" data-go="compare">Có bán hàng</button>
-    <button class="big" data-go="noSales">Tháng này nghỉ, không bán</button>
-    <div class="note">Nếu tháng này nghỉ, chọn ô dưới. Khai “không bán” vẫn là khai đúng, không sao cả.</div>
-    <p class="sm" style="font-size:14px">Đã tự lưu lúc 9:38 — thoát ra vẫn còn.</p>
-  </div>
-</section>
-
-<!-- 5 ───────────────────────────────────────── -->
-<section class="scr" id="s-compare">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Doanh thu tháng 7</h3></div>
-  <div class="bd">
-    <div class="card fill"><div class="row"><span class="k">Tháng 6 bạn đã khai</span><span class="v" style="font-size:18px">10 – 30 triệu</span></div></div>
-    <h4>Tháng 7 so với tháng 6 thì thế nào?</h4>
-    <button class="big" data-go="range">Bán được nhiều hơn</button>
-    <button class="big" aria-checked="true" data-go="range">Cũng gần như vậy</button>
-    <button class="big" data-go="range">Bán được ít hơn</button>
-    <div class="note">Không cần cộng sổ. Chọn cảm nhận của bạn, bước sau vẫn sửa được.</div>
-    <button class="link" data-go="estimate">Tôi không nhớ tháng trước</button>
-  </div>
-</section>
-
-<!-- 6 ───────────────────────────────────────── -->
-<section class="scr" id="s-estimate">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Doanh thu tháng 7</h3></div>
-  <div class="bd">
-    <p class="sm">Chưa có số tháng trước. Trả lời 2 câu này là được.</p>
-    <div>
-      <p class="lead" style="font-size:18px;margin-bottom:10px">Ngày thường bán được khoảng bao nhiêu?</p>
-      <div class="step"><button data-step="-1" aria-label="Giảm">−</button><span class="val" id="v-day">800.000đ</span><button data-step="1" aria-label="Tăng">+</button></div>
-    </div>
-    <div>
-      <p class="lead" style="font-size:18px;margin-bottom:10px">Tháng 7 bán được mấy ngày?</p>
-      <div class="step"><button data-step2="-1" aria-label="Giảm">−</button><span class="val" id="v-num">26 ngày</span><button data-step2="1" aria-label="Tăng">+</button></div>
-    </div>
-    <div class="card fill"><div class="row"><span class="k">Ước tính</span><span class="v" style="font-size:20px" id="v-est">khoảng 20,8 triệu</span></div></div>
-  </div>
-  <div class="ft"><button class="btn pri" data-go="range">Tiếp tục</button></div>
-</section>
-
-<!-- 7 ───────────────────────────────────────── -->
-<section class="scr" id="s-range">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Doanh thu tháng 7</h3></div>
-  <div class="bd">
-    <div class="card mark ctr">
-      <p class="sm" style="margin-bottom:4px">Doanh thu tháng 7 khoảng</p>
-      <p class="lead" style="font-size:28px">10 – 30 triệu</p>
-    </div>
-    <p class="sm">Nếu chưa đúng, chọn khoảng khác:</p>
-    <button class="opt" role="radio" aria-checked="false" data-pick><span>Dưới 10 triệu</span><span class="dot"></span></button>
-    <button class="opt" role="radio" aria-checked="true" data-pick><span>10 – 30 triệu</span><span class="dot"></span></button>
-    <button class="opt" role="radio" aria-checked="false" data-pick><span>30 – 50 triệu</span><span class="dot"></span></button>
-    <button class="opt" style="border-style:dashed;color:var(--muted)"><span>Nhập số cụ thể</span><span>đ</span></button>
-  </div>
-  <div class="ft">
-    <div class="card fill" style="padding:12px 14px">
-      <div class="row"><span class="k">Lệ phí chợ</span><span>200.000đ</span></div>
-      <div class="row"><span class="k">Bảo hiểm</span><span>50.000đ</span></div>
-      <div class="rule"></div>
-      <div class="row total"><span class="k">Phải nộp</span><span class="v">250.000đ</span></div>
-    </div>
-    <button class="btn pri" data-go="review">Tiếp tục</button>
-  </div>
-</section>
-
-<!-- 8 ───────────────────────────────────────── -->
-<section class="scr" id="s-noSales">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Tháng 7 nghỉ bán</h3></div>
-  <div class="bd">
-    <div class="note strong"><b>Khai “không bán” là hoàn toàn bình thường.</b>Không bị phạt, không bị hỏi thêm.</div>
-    <p class="lead" style="font-size:18px">Lý do nghỉ <span class="sm" style="font-weight:400">(có thể bỏ qua)</span></p>
-    <button class="opt" role="radio" aria-checked="true" data-pick><span>Nghỉ tạm tháng này</span><span class="dot"></span></button>
-    <button class="opt" role="radio" aria-checked="false" data-pick><span>Có bán nhưng ế, không thu được</span><span class="dot"></span></button>
-    <button class="opt" role="radio" aria-checked="false" data-pick><span>Nghỉ hẳn, trả sạp</span><span class="dot"></span></button>
-  </div>
-  <div class="ft"><button class="btn pri" data-go="exempt">Xong</button></div>
-</section>
-
-<!-- 9 ───────────────────────────────────────── -->
-<section class="scr" id="s-review">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Xem lại trước khi gửi</h3></div>
-  <div class="bd">
-    <div class="card">
-      <div class="row"><span class="k">Tháng</span><span class="v">7/2025</span></div>
-      <div class="row"><span class="k">Sạp</span><span class="v">A12 — Hàng khô</span></div>
-      <div class="row"><span class="k">Doanh thu</span><span class="v">10 – 30 triệu</span></div>
-      <button class="link" style="justify-content:flex-end;min-height:36px" data-go="range">Sửa</button>
-    </div>
-    <div class="card fill">
-      <div class="row"><span class="k">Lệ phí chợ</span><span>200.000đ</span></div>
-      <div class="row"><span class="k">Phí bảo hiểm</span><span>50.000đ</span></div>
-      <div class="rule"></div>
-      <div class="row total"><span class="k">Phải nộp</span><span class="v">250.000đ</span></div>
-      <button class="link" style="justify-content:flex-end;min-height:36px">Vì sao là số này?</button>
-    </div>
-    <div class="card"><div class="row"><span class="k">Hạn nộp</span><span class="v" style="font-size:18px">05/08/2025</span></div></div>
-  </div>
-  <div class="ft"><button class="btn pri" data-go="recorded">Gửi báo doanh thu</button></div>
-</section>
-
-<!-- 10 ──────────────────────────────────────── -->
 <section class="scr" id="s-recorded">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
+  <div class="sb"><span>9:41</span><i></i></div>
   <div class="scrim">
     <div class="sheet">
       <div class="badge"><svg class="ic"><use href="#i-check"/></svg></div>
       <h4 class="ctr">Đã nhận báo doanh thu</h4>
       <div class="card fill">
         <div class="row"><span class="k">Tháng</span><span class="v">7/2025</span></div>
-        <div class="row"><span class="k">Doanh thu</span><span class="v">10 – 30 triệu</span></div>
+        <div class="row"><span class="k">Doanh thu</span><span class="v" id="r-rev">20 – 30 triệu</span></div>
         <div class="rule"></div>
-        <div class="row total"><span class="k">Phải nộp</span><span class="v">250.000đ</span></div>
+        <div class="row total"><span class="k">Phải nộp</span><span class="v" id="r-total">250.000đ</span></div>
       </div>
       <p class="sm ctr">Hạn nộp 05/08/2025</p>
-      <button class="btn pri" data-go="pay">Nộp tiền luôn</button>
+      <button class="btn pri" data-go="pay">Nộp lệ phí luôn</button>
       <button class="btn sec sm" data-go="history">Để sau</button>
     </div>
   </div>
 </section>
 
-<!-- 11 ──────────────────────────────────────── -->
+<!-- 4 ───────────────────────────────────────── -->
 <section class="scr" id="s-exempt">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
+  <div class="sb"><span>9:41</span><i></i></div>
   <div class="bd mid">
     <div class="badge o"><svg class="ic"><use href="#i-check"/></svg></div>
     <h4 class="ctr">Xong tháng 7 rồi</h4>
     <div class="card">
-      <div class="row"><span class="k">Doanh thu khai</span><span class="v">Không bán</span></div>
+      <div class="row"><span class="k">Đã báo</span><span class="v">Nghỉ hẳn, trả sạp</span></div>
       <div class="rule"></div>
-      <div class="row total"><span class="k">Phải nộp</span><span class="v" style="font-size:30px">0đ</span></div>
+      <div class="row total"><span class="k">Phải nộp</span><span class="v" style="font-size:26px">0đ</span></div>
     </div>
-    <div class="note ctr">Tháng này bạn không phải nộp tiền. Không cần làm gì thêm.</div>
+    <div class="note ctr">Bạn không phải nộp lệ phí. Sạp A12 sẽ không tạo kỳ khai báo từ tháng sau.</div>
   </div>
   <div class="ft"><button class="btn pri" data-go="home">Về trang chủ</button></div>
 </section>
 
-<!-- 12 ──────────────────────────────────────── -->
+<!-- 5 ───────────────────────────────────────── -->
 <section class="scr" id="s-history">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
+  <div class="sb"><span>9:41</span><i></i></div>
   <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Lịch sử</h3></div>
   <div class="bd">
     <div class="card mark">
       <div class="row"><span class="v" style="font-size:18px">Tháng 7/2025</span><span class="pill">Chưa nộp</span></div>
-      <p class="sm" style="margin:2px 0 12px">10 – 30 triệu · 250.000đ</p>
-      <button class="btn pri sm" data-go="pay">Nộp tiền</button>
+      <p class="sm" style="margin:2px 0 12px">20 – 30 triệu · 250.000đ</p>
+      <button class="btn pri sm" data-go="pay">Nộp lệ phí</button>
     </div>
     <div class="card">
       <div class="row"><span class="v" style="font-size:18px">Tháng 6/2025</span><span class="pill done">Đã nộp</span></div>
-      <p class="sm" style="margin:2px 0 0">30 – 50 triệu · 400.000đ</p>
+      <p class="sm" style="margin:2px 0 0">20 – 30 triệu · 250.000đ</p>
     </div>
     <div class="card">
       <div class="row"><span class="v" style="font-size:18px">Tháng 5/2025</span><span class="pill warn">Chưa xong</span></div>
       <p class="sm" style="margin:2px 0 12px">Chuyển tiền chưa thành công</p>
-      <div class="two"><button class="btn pri sm" data-go="pay">Nộp lại</button><button class="btn sec sm">Trợ giúp</button></div>
+      <div class="two"><button class="btn pri sm" data-go="pay">Nộp lại</button><button class="btn sec sm">Gọi BQL</button></div>
     </div>
     <div class="card">
       <div class="row"><span class="v" style="font-size:18px">Tháng 4/2025</span><span class="pill done">Không phải nộp</span></div>
@@ -429,28 +391,40 @@ h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em
   </div>
 </section>
 
-<!-- 13 ──────────────────────────────────────── -->
+<!-- 6 ───────────────────────────────────────── -->
 <section class="scr" id="s-pay">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Nộp tiền tháng 7</h3></div>
+  <div class="sb"><span>9:41</span><i></i></div>
+  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Nộp lệ phí tháng 7</h3></div>
   <div class="bd">
-    <div class="ctr" style="padding:10px 0">
+    <div class="card ctr">
       <p class="sm">Số tiền cần nộp</p>
-      <p class="money">250.000đ</p>
+      <p class="money" id="p-total">250.000đ</p>
       <p class="sm" style="font-size:14px">Trả cho BQL Chợ Đồng Xuân</p>
+      <div class="qr" id="qr"></div>
+      <p class="sm" style="font-size:14px">Chụp lại mã này nếu muốn quét bằng máy khác</p>
     </div>
-    <div class="note">Bấm nút dưới, app ngân hàng sẽ mở ra với số tiền và nội dung điền sẵn. Bạn chỉ cần xác nhận.</div>
-    <div class="bank"><span class="logo"></span><span><span class="nm">Vietcombank</span><span class="s" style="display:block;font-size:15px;color:var(--muted)">Ngân hàng bạn hay dùng</span></span></div>
+
+    <div>
+      <p class="field-label">Chọn ngân hàng của bạn</p>
+      <div class="banks">
+        <button class="bankrow" role="radio" aria-checked="true" data-pick><span class="logo"></span><span class="nm">Vietcombank</span><span class="tagmini">Hay dùng</span></button>
+        <button class="bankrow" role="radio" aria-checked="false" data-pick><span class="logo"></span><span class="nm">Agribank</span></button>
+        <button class="bankrow" role="radio" aria-checked="false" data-pick><span class="logo"></span><span class="nm">MB Bank</span></button>
+        <button class="bankrow" role="radio" aria-checked="false" data-pick><span class="logo"></span><span class="nm">BIDV</span></button>
+        <button class="bankrow" role="radio" aria-checked="false" data-pick><span class="logo"></span><span class="nm">VietinBank</span></button>
+        <button class="bankrow" role="radio" aria-checked="false" data-pick><span class="logo"></span><span class="nm">Techcombank</span></button>
+      </div>
+    </div>
   </div>
   <div class="ft">
-    <button class="btn pri" data-go="checking">Mở Vietcombank để trả</button>
-    <button class="link">Ngân hàng khác · Quét mã QR · Nhập tay</button>
+    <p class="sm">Bấm nút dưới, app ngân hàng sẽ mở ra với số tiền và nội dung điền sẵn. Bạn chỉ cần xác nhận.</p>
+    <button class="btn pri" data-go="checking">Mở ngân hàng đóng phí</button>
   </div>
 </section>
 
-<!-- 14 ──────────────────────────────────────── -->
+<!-- 7 ───────────────────────────────────────── -->
 <section class="scr" id="s-checking">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
+  <div class="sb"><span>9:41</span><i></i></div>
   <div class="bd mid">
     <div class="badge d"><svg class="ic"><use href="#i-clock"/></svg></div>
     <h4 class="ctr">Đang kiểm tra</h4>
@@ -458,7 +432,7 @@ h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em
     <p class="sm ctr" style="font-size:16px">Thường mất chưa tới 1 phút.<br>Bạn không cần làm gì thêm.</p>
     <div class="card fill">
       <div class="row"><span class="k">Tháng</span><span class="v">7/2025</span></div>
-      <div class="row"><span class="k">Số tiền</span><span class="v">250.000đ</span></div>
+      <div class="row"><span class="k">Số tiền</span><span class="v" id="c-total">250.000đ</span></div>
     </div>
   </div>
   <div class="ft bare">
@@ -471,29 +445,29 @@ h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em
   </div>
 </section>
 
-<!-- 15 ──────────────────────────────────────── -->
+<!-- 8 ───────────────────────────────────────── -->
 <section class="scr" id="s-paid">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
+  <div class="sb"><span>9:41</span><i></i></div>
   <div class="bd">
     <div class="badge" style="margin-top:26px"><svg class="ic"><use href="#i-check"/></svg></div>
     <h4 class="ctr">Đã nộp xong</h4>
     <p class="sm ctr" style="font-size:16px">Tháng 7/2025 hoàn tất</p>
     <div class="card">
-      <div class="row"><span class="k">Số tiền</span><span class="v" style="font-size:21px">250.000đ</span></div>
+      <div class="row"><span class="k">Số tiền</span><span class="v" style="font-size:19px" id="d-total">250.000đ</span></div>
       <div class="row"><span class="k">Lúc</span><span class="v">19/07 · 9:44</span></div>
       <div class="row"><span class="k">Mã giao dịch</span><span class="v">CHO40-8821</span></div>
     </div>
     <div class="note">Giữ mã giao dịch để tra cứu nếu cần đối chiếu với ban quản lý.</div>
   </div>
   <div class="ft">
-    <button class="btn pri" data-go="home">Về trang chủ</button>
+    <button class="btn pri" data-go="history">Về lịch sử doanh thu</button>
     <button class="link">Xem biên nhận</button>
   </div>
 </section>
 
-<!-- 16 ──────────────────────────────────────── -->
+<!-- 9 ───────────────────────────────────────── -->
 <section class="scr" id="s-reconcile">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
+  <div class="sb"><span>9:41</span><i></i></div>
   <div class="bd mid">
     <div class="badge d"><svg class="ic"><use href="#i-clock"/></svg></div>
     <h4 class="ctr">Đang kiểm tra với ngân hàng</h4>
@@ -507,102 +481,18 @@ h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em
   </div>
 </section>
 
-<!-- 17 ──────────────────────────────────────── -->
+<!-- 10 ──────────────────────────────────────── -->
 <section class="scr" id="s-failed">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
+  <div class="sb"><span>9:41</span><i></i></div>
   <div class="bd mid">
     <div class="badge o"><svg class="ic"><use href="#i-alert"/></svg></div>
     <h4 class="ctr">Chuyển tiền chưa xong</h4>
-    <p class="sm ctr" style="font-size:16px">Tháng 7/2025 · 250.000đ</p>
+    <p class="sm ctr" style="font-size:16px">Tháng 7/2025 · <span id="e-total">250.000đ</span></p>
     <div class="note strong"><b>Chúng tôi đang kiểm tra giúp bạn.</b>Nếu tiền đã bị trừ, bạn sẽ không mất. Đừng chuyển lại lúc này.</div>
   </div>
   <div class="ft">
     <button class="btn pri" data-go="reconcile">Để hệ thống kiểm tra</button>
     <button class="link" data-go="pay">Tôi chắc chắn chưa bị trừ — thử lại</button>
-  </div>
-</section>
-
-<!-- 18 ──────────────────────────────────────── -->
-<section class="scr" id="s-helperHome">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="bd">
-    <h4>Tổng quan</h4>
-    <p class="sm">Máy của Hương — con gái chủ sạp</p>
-    <div class="card mark">
-      <div class="row" style="padding-top:0"><span class="v" style="font-size:18px">Sạp của mẹ chưa khai</span><span class="pill">Còn 6 ngày</span></div>
-      <p class="sm" style="color:var(--ink);margin:4px 0 14px">Sạp A12 — Hàng khô · tháng 7/2025</p>
-      <button class="btn pri" data-go="helperReview">Khai giúp mẹ</button>
-    </div>
-    <div class="card">
-      <div class="row"><span class="v" style="font-size:18px">Sạp của bạn</span><span class="pill done">Đã xong</span></div>
-      <p class="sm" style="margin:2px 0 0">Sạp D05 · tháng 7/2025</p>
-    </div>
-    <div class="note">Bạn được uỷ quyền khai cho sạp A12. Không xem được thông tin thanh toán của chủ sạp.</div>
-  </div>
-  <div class="tabs">
-    <span class="tab on"><svg class="ic"><use href="#i-home"/></svg>Tổng quan</span>
-    <span class="tab"><svg class="ic"><use href="#i-store"/></svg>Sạp hàng</span>
-    <span class="tab"><svg class="ic"><use href="#i-user"/></svg>Cá nhân</span>
-  </div>
-</section>
-
-<!-- 19 ──────────────────────────────────────── -->
-<section class="scr" id="s-helperReview">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Khai giúp sạp A12</h3></div>
-  <div class="bd">
-    <div class="card mark">
-      <div class="row"><span class="k">Người khai</span><span class="v">Bạn — Hương</span></div>
-      <div class="row"><span class="k">Khai cho</span><span class="v">Sạp A12</span></div>
-      <div class="row"><span class="k">Tháng</span><span class="v">7/2025</span></div>
-    </div>
-    <div class="card fill">
-      <div class="row"><span class="k">Doanh thu</span><span class="v">10 – 30 triệu</span></div>
-      <div class="rule"></div>
-      <div class="row total"><span class="k">Phải nộp</span><span class="v">250.000đ</span></div>
-    </div>
-    <div class="note strong"><b>Bạn không trả tiền hộ được.</b>Sau khi gửi, mẹ bạn sẽ nhận tin nhắn và tự bấm chuyển khoản từ app ngân hàng của mẹ.</div>
-  </div>
-  <div class="ft"><button class="btn pri" data-go="helperSent">Gửi kê khai</button></div>
-</section>
-
-<!-- 20 ──────────────────────────────────────── -->
-<section class="scr" id="s-helperSent">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="bd mid">
-    <div class="badge"><svg class="ic"><use href="#i-check"/></svg></div>
-    <h4 class="ctr">Đã gửi kê khai</h4>
-    <p class="sm ctr" style="font-size:16px">Sạp A12 · tháng 7/2025</p>
-    <div class="card">
-      <div class="row"><span class="k">Đã báo cho</span><span class="v">Mẹ — qua Zalo</span></div>
-      <div class="row"><span class="k">Lúc</span><span class="v">19/07 · 9:44</span></div>
-    </div>
-    <div class="note">Kê khai đã có hiệu lực ngay. Nếu mẹ thấy sai, mẹ bấm phản hồi trong tin nhắn trước 05/08.</div>
-  </div>
-  <div class="ft">
-    <button class="btn pri" data-go="helperHome">Về trang chủ</button>
-    <button class="link" data-go="ownerNotice">Xem tin nhắn mẹ nhận được</button>
-  </div>
-</section>
-
-<!-- 21 ──────────────────────────────────────── -->
-<section class="scr" id="s-ownerNotice">
-  <div class="sb"><span>9:41</span><span class="rt"><i></i></span></div>
-  <div class="nav"><button class="back" data-back aria-label="Quay lại"><svg class="ic"><use href="#i-back"/></svg></button><h3>Máy của chủ sạp</h3></div>
-  <div class="bd">
-    <p class="sm">Mở từ tin nhắn Zalo</p>
-    <div class="card mark">
-      <div class="row" style="padding-top:0"><svg class="ic" style="width:22px;height:22px"><use href="#i-bell"/></svg><span style="flex:1"></span></div>
-      <p class="lead" style="font-size:19px">Hương đã khai giúp bạn</p>
-      <p class="sm" style="color:var(--ink);margin-top:6px">Sạp A12 · tháng 7/2025 · doanh thu 10 – 30 triệu</p>
-      <div class="rule"></div>
-      <div class="row total"><span class="k">Phải nộp</span><span class="v">250.000đ</span></div>
-    </div>
-    <div class="note">Kê khai đã được ghi nhận. Nếu số này không đúng, bạn báo lại trước 05/08.</div>
-  </div>
-  <div class="ft">
-    <button class="btn pri" data-go="pay">Nộp tiền</button>
-    <button class="btn sec sm">Số này không đúng</button>
   </div>
 </section>
 
@@ -618,41 +508,36 @@ h4{margin:0;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em
 
 <script>
 const SCREENS = [
-  {g:"Chặng 1 — Vào luồng", id:"home", t:"Tổng quan", node:"Trang chủ", why:"Việc cần làm đặt trên cùng, biểu đồ lùi xuống. Chỉ giữ một biểu đồ để giảm nhiễu."},
-  {id:"period", t:"Chi tiết kỳ", node:"Chi tiết kỳ kê khai", why:"Giải thích mục đích dữ liệu trước khi hỏi tiền. Lối vào chế độ khai hộ đặt ngay đây."},
-  {id:"stalls", t:"Chọn sạp", node:"Chọn sạp cần khai", why:"Sạp đã khai dùng nhãn thay vì làm mờ, để tương phản vẫn đạt chuẩn đọc."},
-  {id:"hasSales", t:"Có bán hàng không?", node:"Quyết định: tháng này sạp có bán hàng?", why:"Tách thành câu hỏi riêng để người nghỉ bán không phải vào màn nhập tiền rồi chọn 0."},
+  {g:"Khai báo", id:"home", t:"Tổng quan", node:"Trang chủ",
+   why:"Việc cần làm đặt trên cùng. Một nút duy nhất dẫn thẳng vào màn khai báo."},
+  {id:"declare", t:"Báo doanh thu (màn gộp)", node:"Kê khai doanh thu + chọn mức + tính lệ phí",
+   why:"Gộp hạn báo, câu hỏi có bán hàng, chọn mức tiền và lệ phí vào một màn. Người dùng cuộn thay vì chuyển màn. Mặc định “Có bán hàng” vì đó là trường hợp phổ biến, nên đa số chỉ cần chạm 2 lần: chọn mức tiền và bấm gửi."},
+  {id:"recorded", t:"Đã ghi nhận", node:"Đã ghi nhận kê khai",
+   why:"Xác nhận kết quả, mở hai lựa chọn: nộp ngay hoặc để sau."},
+  {id:"exempt", t:"Không phải nộp", node:"Hoàn thành — miễn lệ phí",
+   why:"Điểm kết của nhánh nghỉ bán. Cố ý không có lối nào dẫn sang thanh toán."},
+  {id:"history", t:"Lịch sử", node:"Chờ nộp / trạng thái kỳ",
+   why:"Bốn trạng thái. “Không phải nộp” viết rõ để khỏi lẫn với “Đã nộp”."},
 
-  {g:"Chặng 2 — Báo doanh thu", id:"compare", t:"So với tháng trước", node:"So với tháng trước", why:"Đổi câu hỏi số học thành phép so sánh. Đây là sửa lỗi nặng nhất từ đợt audit."},
-  {id:"estimate", t:"Ước tính từ doanh thu ngày", node:"Ước tính từ doanh thu ngày", why:"Cho người khai lần đầu. Hỏi theo ngày vì đó là cách tiểu thương thực sự theo dõi."},
-  {id:"range", t:"Khoảng đề xuất", node:"Khoảng doanh thu đề xuất", why:"Hệ thống đoán trước, người dùng sửa sau. Bỏ chữ “tạm tính” gây lo lắng."},
-  {id:"noSales", t:"Tháng này nghỉ", node:"Xác nhận không phát sinh", why:"Câu trấn an đưa lên đầu. Tách “nghỉ tạm” khỏi “nghỉ hẳn” vì hệ quả khác nhau."},
-
-  {g:"Chặng 3 — Ghi nhận", id:"review", t:"Xem lại", node:"Kiểm tra kê khai và lệ phí", why:"Chốt cuối trước khi khoá. “Xem cách tính” viết thành câu người dùng thật sự hỏi."},
-  {id:"recorded", t:"Đã ghi nhận", node:"Đã ghi nhận kê khai", why:"Ba lựa chọn tiếp theo: nộp ngay, để sau, hoặc yêu cầu điều chỉnh."},
-  {id:"exempt", t:"Không phải nộp", node:"Hoàn thành — miễn lệ phí", why:"Điểm kết của nhánh lệ phí bằng 0. Cố ý không có lối nào dẫn sang thanh toán."},
-  {id:"history", t:"Lịch sử", node:"Chờ nộp / trạng thái kỳ", why:"Bốn trạng thái. “Không phải nộp” viết rõ để khỏi lẫn với “Đã nộp”."},
-
-  {g:"Chặng 4 — Nộp tiền", id:"pay", t:"Nộp tiền", node:"Thông tin thanh toán", why:"Deeplink điền sẵn là mặc định. QR và nhập tay lùi xuống lối phụ."},
-  {id:"checking", t:"Đang kiểm tra", node:"Hệ thống kiểm tra giao dịch", why:"Không có nút “tôi đã chuyển xong” — hệ thống tự xác định, tránh hai mô hình mâu thuẫn."},
-  {id:"paid", t:"Đã nộp xong", node:"Thanh toán thành công", why:"Mã giao dịch hiện ngay, không giấu trong biên nhận."},
-  {id:"reconcile", t:"Đang kiểm tra với ngân hàng", node:"Đang kiểm tra với ngân hàng", why:"Trạng thái tiền đã trừ nhưng chưa ghi nhận, tách hẳn khỏi thất bại. Bỏ từ “đối soát”."},
-  {id:"failed", t:"Chuyển tiền chưa xong", node:"Thanh toán không thành công", why:"Mặc định về hướng an toàn. Thử lại là lối phụ, không phải lựa chọn ngang hàng."},
-
-  {g:"Khai hộ — giả thuyết cần kiểm chứng", id:"helperHome", t:"Trang chủ người khai hộ", node:"(chưa có trong flow v3)", why:"Đảo chiều khởi tạo: người khai hộ nhìn thấy việc cần làm trên máy mình, thay vì chủ sạp phải chủ động mời."},
-  {id:"helperReview", t:"Người khai hộ xem lại", node:"(chưa có trong flow v3)", why:"Nói rõ giới hạn: khai được nhưng không trả tiền hộ được. Ràng buộc này đến từ chính app ngân hàng."},
-  {id:"helperSent", t:"Đã gửi kê khai", node:"(thay cho “Chờ chủ sạp xác nhận”)", why:"Ghi nhận ngay thay vì chờ duyệt, để luồng không tắc ở đúng người không rành máy."},
-  {id:"ownerNotice", t:"Chủ sạp nhận thông báo", node:"(chưa có trong flow v3)", why:"Chủ sạp giữ quyền phản đối trong một cửa sổ thời gian. Đi qua Zalo vì nhóm này ít mở app."}
+  {g:"Nộp lệ phí", id:"pay", t:"Nộp lệ phí", node:"Thông tin thanh toán",
+   why:"Mã QR hiện sẵn cạnh số tiền để người dùng chụp lại nếu muốn quét bằng máy khác. Ngân hàng hay dùng đẩy lên đầu danh sách. Câu hướng dẫn đặt ngay trên nút, đọc xong là bấm."},
+  {id:"checking", t:"Đang kiểm tra", node:"Hệ thống kiểm tra giao dịch",
+   why:"Không có nút “tôi đã chuyển xong” — hệ thống tự xác định, tránh hai mô hình mâu thuẫn."},
+  {id:"paid", t:"Đã nộp xong", node:"Thanh toán thành công",
+   why:"Mã giao dịch hiện ngay, không giấu trong biên nhận. Lối ra chính là về lịch sử doanh thu để người dùng thấy kỳ vừa nộp đã đổi trạng thái."},
+  {id:"reconcile", t:"Đang kiểm tra với ngân hàng", node:"Đang kiểm tra với ngân hàng",
+   why:"Trạng thái tiền đã trừ nhưng chưa ghi nhận, tách hẳn khỏi thất bại."},
+  {id:"failed", t:"Chuyển tiền chưa xong", node:"Thanh toán không thành công",
+   why:"Mặc định về hướng an toàn. Thử lại là lối phụ, không phải lựa chọn ngang hàng."}
 ];
 
-const vp = document.getElementById('viewport');
 const rail = document.getElementById('rail');
 const anno = document.getElementById('anno');
 let stack = [];
 
 rail.innerHTML = SCREENS.map((s,i)=>{
-  const head = s.g ? `<h2>${s.g}</h2>` : '';
   const open = s.g ? (i ? '</div><div class="grp">' : '<div class="grp">') : '';
+  const head = s.g ? `<h2>${s.g}</h2>` : '';
   return `${open}${head}<button class="nav-i" data-jump="${s.id}"><b>${i+1}</b><span>${s.t}</span></button>`;
 }).join('') + '</div>';
 
@@ -670,16 +555,111 @@ function show(id, push){
   if(location.hash.slice(1) !== id) history.replaceState(null,'','#'+id);
 }
 
+/* ── logic màn gộp ─────────────────────────── */
+const BRACKETS = {
+  a:{label:'Dưới 10 triệu', market:100000},
+  b:{label:'10 – 20 triệu', market:150000},
+  c:{label:'20 – 30 triệu', market:200000},
+  d:{label:'Trên 30 triệu', market:300000}
+};
+const INSURANCE = 50000;
+const MIN_MARKET = 100000;          // lệ phí chợ tối thiểu khi nghỉ tạm
+const fmt = n => n.toLocaleString('vi-VN')+'đ';
+
+let sales='yes', mode='month', bracket=null, otherVal=0, perDay=800000, numDays=26;
+let reason='temp';                  // 'temp' = nghỉ tạm | 'quit' = nghỉ hẳn
+
+function bracketFromMillions(m){
+  if(!m) return null;
+  if(m < 10) return 'a';
+  if(m < 20) return 'b';
+  if(m <= 30) return 'c';
+  return 'd';
+}
+function currentBracket(){
+  if(sales!=='yes') return null;
+  if(mode==='day') return bracketFromMillions(perDay*numDays/1e6);
+  if(bracket==='x') return bracketFromMillions(otherVal/1e6);
+  return bracket;
+}
+
+function render(){
+  document.querySelectorAll('[data-sales]').forEach(b=>
+    b.setAttribute('aria-checked', b.dataset.sales===sales ? 'true':'false'));
+  document.getElementById('blk-yes').hidden = sales!=='yes';
+  document.getElementById('blk-no').hidden  = sales!=='no';
+
+  document.querySelectorAll('[data-reason]').forEach(b=>
+    b.setAttribute('aria-checked', b.dataset.reason===reason ? 'true':'false'));
+  document.getElementById('fee-temp').hidden = reason!=='temp';
+  document.getElementById('fee-quit').hidden = reason!=='quit';
+  document.getElementById('no-note').textContent = reason==='temp'
+    ? 'Nghỉ tạm vẫn đóng mức tối thiểu để giữ chỗ sạp.'
+    : 'Trả sạp thì không phải nộp lệ phí. Sạp sẽ không tạo kỳ khai báo từ tháng sau.';
+
+  document.querySelectorAll('[data-mode]').forEach(b=>
+    b.setAttribute('aria-selected', b.dataset.mode===mode ? 'true':'false'));
+  document.getElementById('blk-month').hidden = mode!=='month';
+  document.getElementById('blk-day').hidden   = mode!=='day';
+
+  document.querySelectorAll('[data-br]').forEach(c=>
+    c.setAttribute('aria-checked', c.dataset.br===bracket ? 'true':'false'));
+  document.getElementById('blk-other').hidden = bracket!=='x';
+
+  document.getElementById('v-day').textContent = fmt(perDay);
+  document.getElementById('v-num').textContent = numDays+' ngày';
+  document.getElementById('v-est').textContent =
+    (perDay*numDays/1e6).toFixed(1).replace('.',',')+' triệu';
+
+  const br = currentBracket();
+  const fee = document.getElementById('blk-fee');
+  const empty = document.getElementById('fee-empty');
+  if(br){
+    const m = BRACKETS[br].market, total = m + INSURANCE;
+    document.getElementById('f-market').textContent = fmt(m);
+    document.getElementById('f-ins').textContent = fmt(INSURANCE);
+    document.getElementById('f-total').textContent = fmt(total);
+    fee.hidden = false; empty.hidden = true;
+    ['r-total','p-total','c-total','d-total','e-total'].forEach(id=>{
+      const n = document.getElementById(id); if(n) n.textContent = fmt(total);
+    });
+    document.getElementById('r-rev').textContent = BRACKETS[br].label;
+  }else{
+    fee.hidden = true; empty.hidden = (sales!=='yes');
+  }
+
+  if(sales==='no' && reason==='temp'){
+    const total = MIN_MARKET + INSURANCE;
+    ['r-total','p-total','c-total','d-total','e-total'].forEach(id=>{
+      const n = document.getElementById(id); if(n) n.textContent = fmt(total);
+    });
+    document.getElementById('r-rev').textContent = 'Không bán — nghỉ tạm';
+  }
+
+  document.getElementById('cta-declare').disabled = (sales==='yes' && !br);
+}
+
 document.addEventListener('click', e=>{
   const jump = e.target.closest('[data-jump]');
-  if(jump){ stack = [jump.dataset.jump]; show(jump.dataset.jump); return; }
+  if(jump){ stack=[jump.dataset.jump]; show(jump.dataset.jump); return; }
   const go = e.target.closest('[data-go]');
   if(go){ show(go.dataset.go, true); return; }
-  if(e.target.closest('[data-back]')){
-    stack.pop();
-    show(stack[stack.length-1] || 'home');
-    return;
-  }
+  if(e.target.closest('[data-back]')){ stack.pop(); show(stack[stack.length-1] || 'home'); return; }
+
+  const s = e.target.closest('[data-sales]');
+  if(s){ sales = s.dataset.sales; render(); return; }
+  const md = e.target.closest('[data-mode]');
+  if(md){ mode = md.dataset.mode; render(); return; }
+  const rs = e.target.closest('[data-reason]');
+  if(rs){ reason = rs.dataset.reason; render(); return; }
+  const br = e.target.closest('[data-br]');
+  if(br){ bracket = br.dataset.br; render();
+    if(bracket==='x') document.getElementById('in-other').focus(); return; }
+  const st = e.target.closest('[data-step]');
+  if(st){ perDay = Math.max(100000, perDay + (+st.dataset.step)*100000); render(); return; }
+  const dy = e.target.closest('[data-days]');
+  if(dy){ numDays = Math.min(31, Math.max(1, numDays + (+dy.dataset.days))); render(); return; }
+
   const pick = e.target.closest('[data-pick]');
   if(pick){
     pick.parentElement.querySelectorAll('[data-pick]').forEach(o=>o.setAttribute('aria-checked','false'));
@@ -687,31 +667,47 @@ document.addEventListener('click', e=>{
   }
 });
 
-let day = 800000, days = 26;
-const fmt = n => n.toLocaleString('vi-VN')+'đ';
-function est(){
-  document.getElementById('v-day').textContent = fmt(day);
-  document.getElementById('v-num').textContent = days+' ngày';
-  const total = day*days/1e6;
-  document.getElementById('v-est').textContent = 'khoảng '+total.toFixed(1).replace('.',',')+' triệu';
-}
-document.addEventListener('click', e=>{
-  const a = e.target.closest('[data-step]'), b = e.target.closest('[data-step2]');
-  if(a){ day = Math.max(100000, day + (+a.dataset.step)*100000); est(); }
-  if(b){ days = Math.min(31, Math.max(1, days + (+b.dataset.step2))); est(); }
+document.getElementById('in-other').addEventListener('input', e=>{
+  const raw = e.target.value.replace(/\D/g,'');
+  otherVal = +raw || 0;
+  e.target.value = raw ? otherVal.toLocaleString('vi-VN') : '';
+  render();
 });
-est();
+
+document.getElementById('cta-declare').addEventListener('click', ()=>{
+  if(sales==='yes') return show('recorded', true);
+  show(reason==='quit' ? 'exempt' : 'recorded', true);
+});
+
+/* mã QR minh hoạ — luôn dùng màu tối cố định để máy quét đọc được,
+   không lấy theo --brand vì màu branding sáng sẽ làm hỏng độ tương phản */
+(function(){
+  const el = document.getElementById('qr');
+  if(!el) return;
+  const N = 25, c = 100/N;
+  let seed = 20250719, out = '';
+  const rnd = () => (seed = (seed*1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+  const box = (x,y,w,f) => `<rect x="${(x*c).toFixed(2)}" y="${(y*c).toFixed(2)}" width="${(w*c).toFixed(2)}" height="${(w*c).toFixed(2)}" fill="${f}"/>`;
+  const eye = (x,y) => box(x,y,7,'#16181D') + box(x+1,y+1,5,'#FFFFFF') + box(x+2,y+2,3,'#16181D');
+  const reserved = (x,y) => (x<8&&y<8) || (x>N-9&&y<8) || (x<8&&y>N-9);
+  for(let y=0;y<N;y++) for(let x=0;x<N;x++)
+    if(!reserved(x,y) && rnd() > .52) out += box(x,y,1,'#16181D');
+  out += eye(0,0) + eye(N-7,0) + eye(0,N-7);
+  el.innerHTML = `<svg viewBox="0 0 100 100" role="img" aria-label="Mã QR chuyển khoản (minh hoạ)">${out}</svg>`;
+})();
 
 function fit(){
-  const s = Math.min(1, (window.innerHeight - 300) / 926);
-  document.getElementById('zoomer').style.transform = 'scale('+Math.max(.55, s)+')';
-  document.getElementById('zoomer').style.height = (926*Math.max(.55,s)+30)+'px';
+  const s = Math.max(.55, Math.min(1, (window.innerHeight - 300) / 926));
+  const z = document.getElementById('zoomer');
+  z.style.transform = 'scale('+s+')';
+  z.style.height = (926*s + 30)+'px';
 }
 window.addEventListener('resize', fit); fit();
 
 const start = location.hash.slice(1);
 stack = [SCREENS.some(s=>s.id===start) ? start : 'home'];
 show(stack[0]);
+render();
 </script>
 </body>
 </html>
